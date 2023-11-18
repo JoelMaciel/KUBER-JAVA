@@ -2,6 +2,7 @@ package org.joel.springcloud.msvc.users.api.dtos.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.joel.springcloud.msvc.users.domain.models.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -17,5 +18,12 @@ public class UserRequest {
     private String email;
     @NotBlank
     private String password;
+
+    public static User toEntity(UserRequest request) {
+        return User.builder()
+                .name(request.getName())
+                .email(request.email)
+                .build();
+    }
 
 }
