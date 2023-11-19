@@ -15,7 +15,6 @@ public class UserDTO {
     private Long id;
     private String name;
     private String email;
-    private String password;
     private OffsetDateTime creationDate;
     private OffsetDateTime updateDate;
 
@@ -23,6 +22,7 @@ public class UserDTO {
         return UserDTO.builder()
                 .id(user.getId())
                 .name(user.getName())
+                .email(user.getEmail())
                 .creationDate(user.getCreationDate())
                 .updateDate(user.getUpdateDate())
                 .build();

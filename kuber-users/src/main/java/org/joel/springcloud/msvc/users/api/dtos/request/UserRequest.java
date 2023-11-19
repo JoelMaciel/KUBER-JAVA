@@ -23,7 +23,7 @@ public class UserRequest {
         return User.builder()
                 .name(request.getName())
                 .email(request.email)
+                .password(request.getPassword())
                 .build();
     }
-
 }
