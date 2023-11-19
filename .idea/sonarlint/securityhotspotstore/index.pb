@@ -53,3 +53,9 @@ akuber-users/src/main/java/org/joel/springcloud/msvc/users/domain/repositories/U
 Ykuber-courses/src/main/java/com/joel/springcloud/mscv/course/KuberCoursesApplication.java,2/e/2e9c0ea144d7847bbc897150c1fdab101f3d980d
 E
 kuber-courses/pom.xml,3/a/3a11c221287e6c21e90484692a1b0a0760739c53
+†
+Vkuber-courses/src/main/java/com/joel/springcloud/mscv/course/domain/models/Course.java,5/9/598dab77e20a926c0dc9cac53917e063afb8ae51
+–
+fkuber-courses/src/main/java/com/joel/springcloud/mscv/course/domain/repositories/CourseRepository.java,0/7/076a9548929717f8a90bdd2ce1a221c2449bde1d
+[
++kuber-courses/src/docker/docker-compose.yml,1/e/1ec6ab6f9424edbcecccdc579a6e1e6bf5716263
