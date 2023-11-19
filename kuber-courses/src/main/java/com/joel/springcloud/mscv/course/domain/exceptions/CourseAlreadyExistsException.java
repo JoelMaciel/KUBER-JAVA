@@ -4,4 +4,5 @@ public class CourseAlreadyExistsException extends EntityInUseException{
     public CourseAlreadyExistsException(String message) {
         super(message);
     }
+
 }
