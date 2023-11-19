@@ -1,8 +1,6 @@
 package com.joel.springcloud.mscv.course.domain.models;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +10,8 @@ import java.time.OffsetDateTime;
 @Data
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "courses")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Course {

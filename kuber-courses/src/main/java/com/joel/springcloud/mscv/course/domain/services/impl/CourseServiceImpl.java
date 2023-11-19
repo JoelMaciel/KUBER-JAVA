@@ -2,6 +2,7 @@ package com.joel.springcloud.mscv.course.domain.services.impl;
 
 import com.joel.springcloud.mscv.course.api.dtos.request.CourseRequest;
 import com.joel.springcloud.mscv.course.api.dtos.response.CourseDTO;
+import com.joel.springcloud.mscv.course.domain.exceptions.CourseAlreadyExistsException;
 import com.joel.springcloud.mscv.course.domain.exceptions.CourseNotFoundException;
 import com.joel.springcloud.mscv.course.domain.models.Course;
 import com.joel.springcloud.mscv.course.domain.repositories.CourseRepository;
@@ -12,17 +13,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.OffsetDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
 
+    public static final String MSG_COURSE_ALREADY_EXISTS = "There is a Course registered with that name";
     private final CourseRepository courseRepository;
 
     @Override
     @Transactional(readOnly = true)
-    public Page<CourseDTO> findALl(Pageable pageable) {
-        Page<Course> coursePage = courseRepository.findAll(pageable);
-        return coursePage.map(CourseDTO::toDTO);
+    public Page<CourseDTO> findAll(Pageable pageable) {
+        return courseRepository.findAll(pageable).map(CourseDTO::toDTO);
     }
 
     @Override
@@ -34,15 +37,16 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional
     public CourseDTO save(CourseRequest courseRequest) {
-        Course course = CourseRequest.toEntity(courseRequest);
-        return CourseDTO.toDTO(courseRepository.save(course));
+        validateCourse(courseRequest.getName());
+        return CourseDTO.toDTO(courseRepository.save(CourseRequest.toEntity(courseRequest)));
     }
 
     @Override
     @Transactional
     public CourseDTO update(Long courseId, CourseRequest courseRequest) {
         Course course = searchById(courseId);
-        course.setName(course.getName());
+        validateCourse(courseRequest.getName());
+        course.setName(courseRequest.getName());
         return CourseDTO.toDTO(courseRepository.save(course));
     }
 
@@ -52,6 +56,14 @@ public class CourseServiceImpl implements CourseService {
         searchById(courseId);
         courseRepository.deleteById(courseId);
 
+    }
+
+    @Override
+    public boolean validateCourse(String name) {
+        if (courseRepository.existsByName(name)) {
+            throw new CourseAlreadyExistsException(MSG_COURSE_ALREADY_EXISTS);
+        }
+        return false;
     }
 
     @Override

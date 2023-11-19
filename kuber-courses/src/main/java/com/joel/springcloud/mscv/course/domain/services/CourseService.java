@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface CourseService {
-    Page<CourseDTO> findALl(Pageable pageable);
+    Page<CourseDTO> findAll(Pageable pageable);
 
     CourseDTO findById(Long courseId);
 
@@ -16,6 +16,8 @@ public interface CourseService {
     CourseDTO update(Long courseId, CourseRequest courseRequest);
 
     void delete(Long courseId);
+
+    boolean validateCourse(String name);
 
     Course searchById(Long id);
 }

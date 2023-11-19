@@ -1,14 +1,13 @@
 package com.joel.springcloud.mscv.course.api.dtos.request;
 
 import com.joel.springcloud.mscv.course.domain.models.Course;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import java.time.OffsetDateTime;
 
 @Getter
-@Builder
 @Setter
 public class CourseRequest {
 
@@ -18,6 +17,7 @@ public class CourseRequest {
     public static Course toEntity(CourseRequest request) {
         return Course.builder()
                 .name(request.getName())
+                .updateDate(OffsetDateTime.now())
                 .build();
     }
 }
