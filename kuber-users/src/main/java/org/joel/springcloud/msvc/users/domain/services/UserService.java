@@ -7,16 +7,18 @@ import org.joel.springcloud.msvc.users.domain.models.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.UUID;
+
 public interface UserService {
 
     Page<UserDTO> list(Pageable pageable);
 
-    UserDTO findById(Long id);
+    UserDTO findById(UUID userId);
 
     UserDTO save(UserRequest userRequest);
-    UserDTO update(Long userid, UserRequestUpdate request);
+    UserDTO update(UUID userid, UserRequestUpdate request);
 
-    void delete(Long id);
+    void delete(UUID id);
 
-    User searchById(Long id);
+    User searchById(UUID id);
 }

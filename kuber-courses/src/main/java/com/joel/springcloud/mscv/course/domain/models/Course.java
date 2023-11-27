@@ -2,12 +2,18 @@ package com.joel.springcloud.mscv.course.domain.models;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @AllArgsConstructor
@@ -17,9 +23,10 @@ import java.time.OffsetDateTime;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Type(type = "uuid-char")
     @EqualsAndHashCode.Include
-    private Long id;
+    private UUID courseId;
 
     private String name;
 
@@ -28,4 +35,18 @@ public class Course {
 
     @UpdateTimestamp
     private OffsetDateTime updateDate;
+
+    @OneToMany(mappedBy = "course")
+    private Set<CourseUser> courseUsers = new HashSet<>();
+
+    @Transient
+    private List<User> users;
+
+    public void addCourseUser(CourseUser courseUser) {
+        courseUsers.add(courseUser);
+    }
+
+    public void removeCourseUser(CourseUser courseUser) {
+        courseUsers.remove(courseUser);
+    }
 }

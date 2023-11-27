@@ -3,13 +3,14 @@ server:
 
 spring:
   application:
-    name: kuber-users
+    name: kuber-courses
   datasource:
     url: jdbc:mysql://localhost/kuber_courses?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: root
   flyway:
     locations: classpath:db/migration,classpath:db/testdata
+    table: schema_history_courses
   jpa:
     show-sql: true
     properties:

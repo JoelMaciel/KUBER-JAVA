@@ -1,6 +1,7 @@
 package org.joel.springcloud.msvc.users.api.exceptionhandler;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class Problem {
     private String title;
     private String detail;
     private String userMessage;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
     private OffsetDateTime timestamp;
     private List<Object> objects;
 

@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,13 +23,13 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public Page<UserDTO> gelAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC)
+    public Page<UserDTO> gelAll(@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC)
                                 Pageable pageable) {
         return userService.list(pageable);
     }
 
     @GetMapping("/{userId}")
-    public UserDTO getOne(@PathVariable Long userId) {
+    public UserDTO getOne(@PathVariable UUID userId) {
         return userService.findById(userId);
     }
 
@@ -39,13 +40,13 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public UserDTO updateUser(@PathVariable Long userId, @RequestBody @Valid UserRequestUpdate requestUpdate) {
+    public UserDTO updateUser(@PathVariable UUID userId, @RequestBody @Valid UserRequestUpdate requestUpdate) {
         return userService.update(userId, requestUpdate);
     }
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUser(@PathVariable Long userId) {
+    public void deleteUser(@PathVariable UUID userId) {
         userService.delete(userId);
     }
 

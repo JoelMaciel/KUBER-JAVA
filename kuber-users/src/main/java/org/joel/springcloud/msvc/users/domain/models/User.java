@@ -2,10 +2,12 @@ package org.joel.springcloud.msvc.users.domain.models;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 
 @Data
@@ -18,9 +20,10 @@ import java.time.OffsetDateTime;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Type(type = "uuid-char")
     @EqualsAndHashCode.Include
-    private Long id;
+    private UUID userId;
     private String name;
     private String email;
     private String password;
