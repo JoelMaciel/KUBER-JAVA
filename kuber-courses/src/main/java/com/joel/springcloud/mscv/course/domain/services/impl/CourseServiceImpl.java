@@ -8,30 +8,24 @@ import com.joel.springcloud.mscv.course.domain.models.Course;
 import com.joel.springcloud.mscv.course.domain.repositories.CourseRepository;
 import com.joel.springcloud.mscv.course.domain.services.CourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.OffsetDateTime;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
 
     public static final String MSG_COURSE_ALREADY_EXISTS = "There is a Course registered with that name";
+    public static final String MSG_SUBCRIPTION_CONFLICT = "User is already subscribed to this course.";
     private final CourseRepository courseRepository;
 
-    @Override
-    @Transactional(readOnly = true)
-    public Page<CourseDTO> findAll(Pageable pageable) {
-        return courseRepository.findAll(pageable).map(CourseDTO::toDTO);
-    }
 
     @Override
     @Transactional(readOnly = true)
-    public CourseDTO findById(Long courseId) {
-        return CourseDTO.toDTO(searchById(courseId));
+    public CourseDTO findById(UUID courseId) {
+        return CourseDTO.toDTO(courseById(courseId));
     }
 
     @Override
@@ -43,8 +37,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     @Transactional
-    public CourseDTO update(Long courseId, CourseRequest courseRequest) {
-        Course course = searchById(courseId);
+    public CourseDTO update(UUID courseId, CourseRequest courseRequest) {
+        Course course = courseById(courseId);
         validateCourse(courseRequest.getName());
         course.setName(courseRequest.getName());
         return CourseDTO.toDTO(courseRepository.save(course));
@@ -52,8 +46,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     @Transactional
-    public void delete(Long courseId) {
-        searchById(courseId);
+    public void delete(UUID courseId) {
+        courseById(courseId);
         courseRepository.deleteById(courseId);
 
     }
@@ -67,8 +61,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course searchById(Long courseId) {
+    public Course courseById(UUID courseId) {
         return courseRepository.findById(courseId)
                 .orElseThrow(() -> new CourseNotFoundException(courseId));
     }
+
 }

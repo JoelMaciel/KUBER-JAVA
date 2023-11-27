@@ -1,15 +1,16 @@
 server:
-  port: 8002
+  port: 8001
 
 spring:
   application:
     name: kuber-users
   datasource:
-    url: jdbc:mysql://localhost/kuber_courses?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost/kuber_users?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: root
   flyway:
     locations: classpath:db/migration,classpath:db/testdata
+    table: schema_history_users
   jpa:
     show-sql: true
     properties:

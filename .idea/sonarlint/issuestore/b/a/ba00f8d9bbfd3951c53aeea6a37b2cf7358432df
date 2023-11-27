@@ -1,21 +1,23 @@
 
-<
-java:S1452:"&Remove usage of generic wildcard type.(ÈÜ©¾
-A
-java:S1452H"&Remove usage of generic wildcard type.(ô˜ˆÌýÿÿÿÿ
-<
-java:S1452V"&Remove usage of generic wildcard type.(æýÔð
-<
-java:S1452"&Remove usage of generic wildcard type.( ž¹”
-B
-java:S1452"&Remove usage of generic wildcard type.(œâ‰þÿÿÿÿ
-˜
-java:S6201­"€Replace this instanceof check and cast with 'instanceof MethodArgumentTypeMismatchException methodargumenttypemismatchexception'(²…Î
-}
-java:S6201Ë"fReplace this instanceof check and cast with 'instanceof InvalidFormatException invalidformatexception'(ÇÂ²Þ
-€
-java:S6201Í"jReplace this instanceof check and cast with 'instanceof PropertyBindingException propertybindingexception'(“ƒòA
-`
-java:S1612ü"DReplace this lambda with method reference 'Reference::getFieldName'.(Ô‘Œ­þÿÿÿÿ
-]
-java:S6201‹"FReplace this instanceof check and cast with 'instanceof String string'(òÌŠª
+q
+java:S2259¼"NA "NullPointerException" could be thrown; "getRequiredType()" can return null.(ó–ú’ýÿÿÿÿ8«ÙûÁÀ1
+C
+java:S1452:"&Remove usage of generic wildcard type.(ÈÜ©¾8µÙûÁÀ1
+H
+java:S1452H"&Remove usage of generic wildcard type.(ô˜ˆÌýÿÿÿÿ8·ÙûÁÀ1
+C
+java:S1452V"&Remove usage of generic wildcard type.(æýÔð8¸ÙûÁÀ1
+C
+java:S1452"&Remove usage of generic wildcard type.( ž¹”8»ÙûÁÀ1
+I
+java:S1452"&Remove usage of generic wildcard type.(œâ‰þÿÿÿÿ8½ÙûÁÀ1
+Ÿ
+java:S6201­"€Replace this instanceof check and cast with 'instanceof MethodArgumentTypeMismatchException methodargumenttypemismatchexception'(²…Î8¿ÙûÁÀ1
+„
+java:S6201Ë"fReplace this instanceof check and cast with 'instanceof InvalidFormatException invalidformatexception'(ÇÂ²Þ8ÂÙûÁÀ1
+‡
+java:S6201Í"jReplace this instanceof check and cast with 'instanceof PropertyBindingException propertybindingexception'(“ƒòA8ÂÙûÁÀ1
+g
+java:S1612ü"DReplace this lambda with method reference 'Reference::getFieldName'.(Ô‘Œ­þÿÿÿÿ8ÆÙûÁÀ1
+d
+java:S6201‹"FReplace this instanceof check and cast with 'instanceof String string'(òÌŠª8ÈÙûÁÀ1

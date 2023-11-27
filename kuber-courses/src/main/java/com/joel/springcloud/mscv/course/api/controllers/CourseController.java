@@ -4,14 +4,11 @@ import com.joel.springcloud.mscv.course.api.dtos.request.CourseRequest;
 import com.joel.springcloud.mscv.course.api.dtos.response.CourseDTO;
 import com.joel.springcloud.mscv.course.domain.services.CourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,14 +17,8 @@ public class CourseController {
 
     private final CourseService courseService;
 
-    @GetMapping
-    public Page<CourseDTO> getAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC)
-                                  Pageable pageable) {
-        return courseService.findAll(pageable);
-    }
-
     @GetMapping("/{courseId}")
-    public CourseDTO getOne(@PathVariable Long courseId) {
+    public CourseDTO getOne(@PathVariable UUID courseId) {
         return courseService.findById(courseId);
     }
 
@@ -38,13 +29,15 @@ public class CourseController {
     }
 
     @PutMapping("/{courseId}")
-    public CourseDTO update(@PathVariable Long courseId, @RequestBody @Valid CourseRequest courseRequest) {
+    public CourseDTO update(@PathVariable UUID courseId, @RequestBody @Valid CourseRequest courseRequest) {
         return courseService.update(courseId, courseRequest);
     }
 
     @DeleteMapping("/{courseId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long courseId) {
+    public void delete(@PathVariable UUID courseId) {
         courseService.delete(courseId);
     }
+
+
 }
