@@ -28,7 +28,7 @@ public class CourseUserController {
     public Page<CourseDTO> getAll(
             @RequestParam(value = "userId", required = false) UUID userId,
             @RequestParam(value = "courseId", required = false) UUID courseId,
-            @PageableDefault(page = 0, size = 10, sort = "course.courseId", direction = Sort.Direction.ASC) Pageable pageable
+            @PageableDefault(page = 0, size = 10, sort = "courseId", direction = Sort.Direction.ASC) Pageable pageable
     ) {
         return courseUserService.getCoursesByUserId(userId, courseId, pageable);
     }
