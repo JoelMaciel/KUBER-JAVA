@@ -19,6 +19,9 @@ target/
 *.iml
 *.ipr
 
+# Ignorar todo o diretório .idea/sonarlint
+.idea/sonarlint/
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
