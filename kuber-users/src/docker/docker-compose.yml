@@ -1,6 +1,19 @@
 version: '3.1'
 
 services:
+  app:
+    image: "d1c90964a1e4"
+    container_name: kuber_users
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mysql_users
+      - mysql_courses
+    networks:
+      - microservices_network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_users:3306/kuber_users
+
   mysql_users:
     image: mysql:latest
     container_name: mysql_users
@@ -9,7 +22,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: kuber_users
-      MYSQL_USER: user
+      MYSQL_USER: root
       MYSQL_PASSWORD: root
     networks:
       - microservices_network
@@ -22,7 +35,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: kuber_courses
-      MYSQL_USER: course
+      MYSQL_USER: root
       MYSQL_PASSWORD: root
     networks:
       - microservices_network

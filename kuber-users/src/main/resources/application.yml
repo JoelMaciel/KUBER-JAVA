@@ -5,9 +5,9 @@ spring:
   application:
     name: kuber-users
   datasource:
-    url: jdbc:mysql://localhost/kuber_users?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/kuber_users?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
-    password: root
+    password:
   flyway:
     locations: classpath:db/migration,classpath:db/testdata
     table: schema_history_users
@@ -28,5 +28,7 @@ spring:
     level:
       root: INFO
       org.springframework.web: DEBUG
-
+logging:
+  file:
+    path: /app/logs
 

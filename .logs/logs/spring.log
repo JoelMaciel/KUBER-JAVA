@@ -1,0 +1,27 @@
+2023-12-03 11:14:35.214  INFO 1 --- [main] o.j.s.msvc.users.KuberUsersApplication   : Starting KuberUsersApplication v0.0.1-SNAPSHOT using Java 17-ea on joelmaciel with PID 1 (/app/msvc-users-0.0.1-SNAPSHOT.jar started by root in /app)
+2023-12-03 11:14:35.217  INFO 1 --- [main] o.j.s.msvc.users.KuberUsersApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-12-03 11:14:36.302  INFO 1 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-03 11:14:36.396  INFO 1 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 1 JPA repository interfaces.
+2023-12-03 11:14:36.666  INFO 1 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ca8ff729-c93d-3d88-9ce3-c29e1fd25235
+2023-12-03 11:14:37.150  INFO 1 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2023-12-03 11:14:37.170  INFO 1 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-03 11:14:37.171  INFO 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2023-12-03 11:14:37.221  INFO 1 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-03 11:14:37.222  INFO 1 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1918 ms
+2023-12-03 11:14:37.477  INFO 1 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-03 11:14:37.948  INFO 1 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-03 11:14:37.978  INFO 1 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.5 by Redgate
+2023-12-03 11:14:37.979  INFO 1 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/kuber_users (MySQL 8.0)
+2023-12-03 11:14:38.084  INFO 1 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.041s)
+2023-12-03 11:14:38.127  INFO 1 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `kuber_users`: 002
+2023-12-03 11:14:38.133  INFO 1 --- [main] o.f.core.internal.command.DbMigrate      : Schema `kuber_users` is up to date. No migration necessary.
+2023-12-03 11:14:38.180  INFO 1 --- [main] o.f.c.i.c.SqlScriptCallbackFactory       : Executing SQL callback: afterMigrate - 
+2023-12-03 11:14:38.446  INFO 1 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-03 11:14:38.500  INFO 1 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2023-12-03 11:14:38.685  INFO 1 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-12-03 11:14:38.795  INFO 1 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-12-03 11:14:39.375  INFO 1 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-12-03 11:14:39.388  INFO 1 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-03 11:14:39.874  WARN 1 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-03 11:14:40.508  INFO 1 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2023-12-03 11:14:40.522  INFO 1 --- [main] o.j.s.msvc.users.KuberUsersApplication   : Started KuberUsersApplication in 5.979 seconds (JVM running for 6.547)
