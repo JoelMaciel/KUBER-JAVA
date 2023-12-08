@@ -1,0 +1,71 @@
+version: '3.9'
+
+services:
+  mysql_users:
+    image: mysql:8.0-debian
+    container_name: mysql_users
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kuber_users
+    volumes:
+      - data-mysql-users:/var/lib/mysql
+    restart: always
+    networks:
+      - microservices_network
+
+  mysql_courses:
+    image: mysql:8.0-debian
+    container_name: mysql_courses
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kuber_courses
+    volumes:
+      - data-mysql-courses:/var/lib/mysql
+    restart: always
+    networks:
+      - microservices_network
+
+
+  kuber-users-app:
+    image: kuber-users:v1
+    container_name: kuber-users
+    build:
+      context: ./
+      dockerfile: ./kuber-users/Dockerfile
+    ports:
+      - "8001:8001"
+    env_file: ./kuber-users/.env
+    depends_on:
+      - mysql_users
+    restart: always
+    networks:
+      - microservices_network
+
+
+  kuber-courses-app:
+    image: kuber-courses:v1
+    container_name: kuber-courses
+    build:
+      context: ./
+      dockerfile: ./kuber-courses/Dockerfile
+    ports:
+      - "8002:8002"
+    env_file: ./kuber-courses/.env
+    depends_on:
+      - mysql_courses
+      - kuber-users-app
+    restart: always
+    networks:
+      - microservices_network
+
+volumes:
+  data-mysql-users:
+  data-mysql-courses:
+
+networks:
+  microservices_network:
+    driver: bridge

@@ -1,13 +1,13 @@
 server:
-  port: 8002
+  port: ${PORT:8002}
 
 spring:
   application:
     name: kuber-courses
   datasource:
-    url: jdbc:mysql://localhost:3306/kuber_courses?createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: root
-    password:
+    url: jdbc:mysql://${DB_HOTS:mysql_courses:3306}/${DB_DATABASE:kuber_courses}?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USERNAME:courses}
+    password: ${DB_PASSWORD:root}
   flyway:
     locations: classpath:db/migration,classpath:db/testdata
     table: schema_history_courses
@@ -29,5 +29,6 @@ spring:
       root: INFO
       org.springframework.web: DEBUG
 
-
+kuber-users:
+  url: ${USERS_URL:kuber-users:8001}
 

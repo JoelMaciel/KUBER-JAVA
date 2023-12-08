@@ -8,7 +8,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.joel.springcloud.msvc.users</groupId>
-	<artifactId>msvc-users</artifactId>
+	<artifactId>kuber-users</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>kuber-users</name>
 	<description>Microservices Users</description>
