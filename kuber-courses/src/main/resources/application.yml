@@ -6,7 +6,7 @@ spring:
     name: kuber-courses
   datasource:
     url: jdbc:mysql://${DB_HOTS:mysql_courses:3306}/${DB_DATABASE:kuber_courses}?createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: ${DB_USERNAME:courses}
+    username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:root}
   flyway:
     locations: classpath:db/migration,classpath:db/testdata

@@ -6,7 +6,7 @@ spring:
     name: kuber-users
   datasource:
     url: jdbc:mysql://${DB_HOST:mysql_users:3306}/${DATA_BASE:kuber_users}?createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: ${DB_USERNAME:users}
+    username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:root}
   flyway:
     locations: classpath:db/migration,classpath:db/testdata

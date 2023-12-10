@@ -31,11 +31,11 @@ services:
 
 
   kuber-users-app:
-    image: kuber-users:v1
+    image: joel37/kuber-users:v1
     container_name: kuber-users
-    build:
-      context: ./
-      dockerfile: ./kuber-users/Dockerfile
+#    build:
+#      context: ./
+#      dockerfile: ./kuber-users/Dockerfile
     ports:
       - "8001:8001"
     env_file: ./kuber-users/.env
@@ -47,11 +47,11 @@ services:
 
 
   kuber-courses-app:
-    image: kuber-courses:v1
+    image: joel37/kuber-courses:latest
     container_name: kuber-courses
-    build:
-      context: ./
-      dockerfile: ./kuber-courses/Dockerfile
+#    build:
+#      context: ./
+#      dockerfile: ./kuber-courses/Dockerfile
     ports:
       - "8002:8002"
     env_file: ./kuber-courses/.env
