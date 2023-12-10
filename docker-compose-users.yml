@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  mysql_users:
+    image: mysql:8.0-debian
+    container_name: mysql_users
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kuber_users
+    volumes:
+      - data-mysql-users:/var/lib/mysql
+    restart: always
+    networks:
+      - microservices_network
+
+  kuber-users-app:
+    image: joel37/kuber-users:v1
+    container_name: kuber-users
+    ports:
+      - "8001:8001"
+    environment:
+      PORT: 8001
+      DB_HOST: mysql_users:3306
+      DATA_BASE: kuber_users
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      COURSES_URL: ec2-3-95-2-11.compute-1.amazonaws.com:8002
+    depends_on:
+      - mysql_users
+    restart: always
+    networks:
+      - microservices_network
+
+volumes:
+  data-mysql-users:
+
+networks:
+  microservices_network:
+    driver: bridge

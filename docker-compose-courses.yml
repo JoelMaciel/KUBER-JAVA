@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  mysql_courses:
+    image: mysql:8.0-debian
+    container_name: mysql_courses
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kuber_courses
+    volumes:
+      - data-mysql-courses:/var/lib/mysql
+    restart: always
+    networks:
+      - microservices_network
+
+
+  kuber-courses-app:
+    image: joel37/kuber-courses:v1
+    container_name: kuber-courses
+    ports:
+      - "8002:8002"
+    environment:
+      PORT: 8002
+      DB_HOST: mysql_courses:3306
+      DATA_BASE: kuber_courses
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      USERS_URL: ec2-3-89-229-164.compute-1.amazonaws.com:8001
+    depends_on:
+      - mysql_courses
+#      - kuber-users
+    restart: always
+    networks:
+      - microservices_network
+
+volumes:
+  data-mysql-courses:
+
+networks:
+  microservices_network:
+    driver: bridge

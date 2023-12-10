@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.UUID;
 
-@FeignClient(name = "kuber-users", url = "localhost:8001")
+@FeignClient(name = "kuber-users", url = "${kuber-users.url}")
 public interface UserClient {
 
     @GetMapping("/api/users/{userId}")

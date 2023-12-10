@@ -18,6 +18,12 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/api/users")
+    @ResponseStatus(HttpStatus.CREATED)
+    public UserDTO savUser(@RequestBody @Valid UserDTO userDTO) {
+        return userService.save(userDTO);
+    }
+
     @PutMapping("/api/users/{userId}")
     UserDTO updateUser(@PathVariable UUID userId, @RequestBody @Valid UserRequestUpdate userRequestUpdate){
         return userService.update(userId, userRequestUpdate);

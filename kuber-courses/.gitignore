@@ -18,6 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
+.env
+./run
 
 # Ignorar todo o diretório .idea/sonarlint
 .idea/sonarlint/
