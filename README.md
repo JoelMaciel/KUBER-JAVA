@@ -24,6 +24,9 @@
 ![Captura de tela de 2023-12-08 17-07-02](https://github.com/JoelMaciel/KUBER-JAVA/assets/77079093/8ab28f32-83e0-4a15-b6a7-444564ae4a6d)
 
 ### Requests to search all, save, update, validate mandatory fields
+![Captura de tela de 2023-12-10 09-38-34](https://github.com/JoelMaciel/KUBER-JAVA/assets/77079093/9ddcd756-9199-4303-9e75-f3a6c777a2a5)
+![Captura de tela de 2023-12-10 09-37-34](https://github.com/JoelMaciel/KUBER-JAVA/assets/77079093/a3b1b73a-ec5c-4ea4-a527-46289d06c8e3)
+
 
 ![Captura de tela de 2023-12-08 17-06-52](https://github.com/JoelMaciel/KUBER-JAVA/assets/77079093/7dd55ecc-8c08-4707-80f3-cda27bfbcd55)
 ![Captura de tela de 2023-12-08 17-06-19](https://github.com/JoelMaciel/KUBER-JAVA/assets/77079093/cd0be854-c25c-45f9-8af3-7c6f1bae7a43)
