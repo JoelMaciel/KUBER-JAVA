@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Service
@@ -46,7 +47,9 @@ public class UserServiceImpl implements UserService {
         validateEmail(userRequest.getEmail());
         userRequest.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         User user = UserRequest.toEntity(userRequest);
-        return UserDTO.toDTO(userRepository.save(user));
+        UserDTO userDTO = UserDTO.toDTO(userRepository.save(user));
+        courseClient.saveUser(userDTO);
+        return userDTO;
     }
 
     @Override

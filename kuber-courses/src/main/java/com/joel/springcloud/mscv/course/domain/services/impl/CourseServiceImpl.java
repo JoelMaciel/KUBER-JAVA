@@ -18,9 +18,7 @@ import java.util.UUID;
 public class CourseServiceImpl implements CourseService {
 
     public static final String MSG_COURSE_ALREADY_EXISTS = "There is a Course registered with that name";
-    public static final String MSG_SUBCRIPTION_CONFLICT = "User is already subscribed to this course.";
     private final CourseRepository courseRepository;
-
 
     @Override
     @Transactional(readOnly = true)
